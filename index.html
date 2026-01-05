@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Access Log</title>
+<style>
+body{
+  margin:0;
+  background:black;
+  color:#00ff00;
+  font-family:monospace;
+}
+.container{
+  padding:20px;
+}
+.box{
+  border:1px solid #00ff00;
+  padding:15px;
+  margin:20px 0;
+}
+pre{
+  margin:0 0 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<pre id="fakeip"></pre>
+
+<pre>
+>>> SYSTEM ACCESS GRANTED
+>>> TARGET IDENTIFIED
+>>> DATA LOADED ✔
+</pre>
+
+<div class="box">
+01040278389 << id
+<br>---
+<br>Time >> 6:32 pm
+<br>---
+<br>الاحد  Day >> Sunday
+<br>---
+<br>Location  >>  Menouf, Menoufia, in front of Menouf General Hospital
+<br>منوف، المنوفية امام مستشفى منوف العام
+</div>
+
+<div class="box">
+01040278389 << id
+<br>---
+<br>Time >> 3:11 pm
+<br>---
+<br>الاحد  Day >> Sunday
+<br>---
+<br>Location  >>  Menouf, Menoufia, El Geish Street
+<br>منوف، المنوفية شارع الجيش
+</div>
+
+</div>
+
+<script>
+// IP وهمي
+function fakeIP(){
+  return Array(4).fill(0).map(() => Math.floor(Math.random()*255)).join(".");
+}
+
+setInterval(() => {
+  document.getElementById("fakeip").textContent =
+    "IP >> " + fakeIP() + "\nSTATUS >> CONNECTED ✔\n";
+}, 2000);
+</script>
+
+</body>
+</html>
